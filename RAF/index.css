@@ -1,0 +1,116 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom focus style for calendar day buttons if needed, Tailwind's default is usually good */
+#calendar-grid button:focus {
+  /* box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.5); /* Example: Indigo focus ring */
+  /* outline: none; */ /* Ensure default outline is removed if custom shadow is used */
+}
+
+/* Ensure checkboxes are easily clickable */
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+/* Slightly larger tap targets for month navigation on mobile */
+@media (max-width: 768px) {
+  .calendar-header button {
+    padding: 0.75rem 1rem; /* Larger padding for easier tapping */
+  }
+  #month-year {
+    font-size: 1.125rem; /* Slightly smaller month/year text if needed */
+  }
+}
+
+@media print {
+  body {
+    padding: 0;
+    margin: 0;
+    font-size: 10pt; /* Base font size for print */
+    background-color: white !important; /* Ensure white background */
+  }
+
+  .container {
+    max-width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 20px !important; /* Margins for the printed page */
+  }
+
+  header h1 {
+    font-size: 18pt !important;
+  }
+  header p, footer p {
+    font-size: 9pt !important;
+    color: #333 !important;
+  }
+  footer {
+    margin-top: 20px !important;
+    page-break-before: auto; /* Avoid breaking footer weirdly */
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
+  main.print\:grid-cols-1 {
+    grid-template-columns: 1fr !important;
+  }
+   main.print\:gap-4 {
+    gap: 1rem !important;
+  }
+
+
+  #calendar-grid {
+    gap: 1px !important; /* Tighter grid for print */
+    border: 1px solid #ccc !important;
+  }
+  #calendar-grid button, #calendar-grid > div {
+    padding: 4px !important;
+    font-size: 8pt !important;
+    min-height: 30px; /* Ensure cells have some height */
+    border: 0.5px solid #eee !important; /* Light borders for cells */
+  }
+   #calendar-grid button.bg-indigo-500 { /* Attended day */
+    background-color: #c3dafe !important; /* Lighter blue for print */
+    color: #000 !important;
+    font-weight: normal !important;
+  }
+  #calendar-grid button.bg-green-200 { /* Selected day */
+    background-color: #bbf7d0 !important; /* Lighter green for print */
+    color: #000 !important;
+    font-weight: bold !important;
+    outline: 1px solid #22c55e !important; /* Green outline for selected */
+  }
+   #calendar-grid button.bg-yellow-100 { /* Today */
+    background-color: #fef9c3 !important; /* Lighter yellow for print */
+    color: #000 !important;
+  }
+
+
+  #ride-options-container.print\:hidden {
+      display: none !important;
+  }
+  #ride-options-container label span, #ride-options-container #daily-cost {
+    font-size: 9pt !important;
+  }
+  input[type="checkbox"].print\:h-4 { height: 1rem !important; }
+  input[type="checkbox"].print\:w-4 { width: 1rem !important; }
+
+
+  #total-cost {
+    font-size: 18pt !important;
+  }
+  .print\:bg-green-100 { background-color: #dcfce7 !important; }
+  .print\:text-green-800 { color: #166534 !important; }
+
+
+  /* Force printing of background colors and images in most browsers */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

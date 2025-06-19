@@ -1,0 +1,5 @@
+{
+  "name": "Registro Asistencia Facultad",
+  "description": "Una aplicación para llevar un registro visual de los días de asistencia a la facultad y calcular los costos de viaje compartidos.",
+  "requestFramePermissions": []
+}
