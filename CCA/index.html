@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Minimalista</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#" id="home-link-logo" class="logo-link"><h1 class="logo">Minimø</h1></a>
+            <nav>
+                <a href="#" id="home-link">Inicio</a>
+                <button id="theme-toggle-button" class="theme-toggle-button" aria-label="Cambiar tema">
+                    <span class="theme-icon-sun">☀️</span>
+                    <span class="theme-icon-moon">🌙</span>
+                </button>
+                <a href="#" id="cart-button" aria-label="Ver carrito de compras">
+                    Carrito (<span id="cart-count">0</span>)
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="product-list-section" aria-labelledby="products-heading">
+            <h2 id="products-heading" class="section-title main-product-title">Todos los modelos. <span class="highlight-text">Haz tu elección.</span></h2>
+            <div id="product-grid" class="product-grid">
+                <!-- Los productos se cargarán aquí mediante JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Minimø. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal para Detalles del Producto -->
+    <div id="product-detail-modal" class="modal" aria-labelledby="product-modal-title" aria-modal="true" role="dialog" tabindex="-1">
+        <div class="modal-content">
+            <button class="modal-close-button" id="close-product-modal" aria-label="Cerrar ventana de detalles del producto">&times;</button>
+            <div id="modal-body-content">
+                <!-- Contenido del detalle del producto se cargará aquí -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para el Carrito de Compras -->
+    <div id="cart-modal" class="modal" aria-labelledby="cart-modal-title" aria-modal="true" role="dialog" tabindex="-1">
+        <div class="modal-content">
+            <button class="modal-close-button" id="close-cart-modal" aria-label="Cerrar ventana del carrito">&times;</button>
+            <h2 id="cart-modal-title">Tu Carrito</h2>
+            <div id="cart-items-container">
+                <!-- Items del carrito se cargarán aquí -->
+            </div>
+            <div class="cart-summary">
+                <p>Total: <span id="cart-total-price">$0.00</span></p>
+                <button id="checkout-button" class="button primary-button">Proceder al Pago (Simulado)</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="index.js"></script>
+</body>
+</html>
